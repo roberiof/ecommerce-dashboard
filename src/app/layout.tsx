@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
+import QueryClientProviderApp from "@/store/providers/QueryClientApp";
+import { ToastContainer } from "react-toastify";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -25,9 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${ubuntu.variable} ${nunitoSans.variable} antialiased`}>
-        {children}
-      </body>
+      <QueryClientProviderApp>
+        <body
+          className={`${ubuntu.variable} ${nunitoSans.variable} antialiased`}
+        >
+          <ToastContainer />
+          {children}
+        </body>
+      </QueryClientProviderApp>
     </html>
   );
 }
