@@ -15,7 +15,11 @@ export default {
       },
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)"
+        foreground: "var(--foreground)",
+        base: {
+          black: "#333333"
+        },
+        primary: "#5A4CA7"
       },
       borderRadius: {
         lg: "var(--radius)",
