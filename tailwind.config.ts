@@ -19,7 +19,9 @@ export default {
         base: {
           black: "#333333"
         },
-        primary: "#5A4CA7"
+        primary: "#5A4CA7",
+        green: "#109E8E",
+        red: "#D6628E"
       },
       borderRadius: {
         lg: "var(--radius)",
