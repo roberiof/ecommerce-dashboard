@@ -26,7 +26,7 @@ const Start = () => {
     <div className="space-y-2">
       <h2 className="text-[#4E5D66] text-[28px] font-bold"> Início</h2>
 
-      <Carousel className="mr-12">
+      <Carousel className="mr-16">
         <CarouselContent>{items.map((item) => item)}</CarouselContent>
         <CarouselNext></CarouselNext>
       </Carousel>
