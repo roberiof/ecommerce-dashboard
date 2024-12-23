@@ -13,12 +13,6 @@ import Log from "@/components/icons/Log";
 import Person from "@/components/icons/Person";
 import Service from "@/components/icons/Services";
 import Text from "@/components/icons/Text";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext
-} from "@/components/ui/carousel";
 import { cn } from "@/utils/shadcn/utils";
 
 const SidebarItem = ({
@@ -35,7 +29,7 @@ const SidebarItem = ({
       <div
         onClick={onClick}
         className={cn(
-          "rounded-[6px] w-[50px] h-[50px] justify-center flex items-center cursor-pointer",
+          "rounded-[6px] w-[40px] h-[40px] justify-center flex items-center cursor-pointer",
           active ? "bg-[#5A4CA7]" : "bg-transparent"
         )}
       >
@@ -94,20 +88,16 @@ const Sidebar = () => {
 
       <div className="w-full h-[2px] bg-base-black/10 shrink-0 my-4" />
 
-      <Carousel orientation="vertical">
-        <CarouselContent className="h-[63vh]">
-          {items.map((item, index) => (
-            <CarouselItem className="basis-1/7" key={index}>
-              <SidebarItem
-                active={item.url === pathname}
-                icon={item.icon}
-                onClick={() => router.push(item.url)}
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselNext />
-      </Carousel>
+      <div className="overflow-y-auto h-[63vh] w-full flex flex-col items-center space-y-2 scrollbar-hide">
+        {items.map((item, index) => (
+          <SidebarItem
+            key={index}
+            active={item.url === pathname}
+            icon={item.icon}
+            onClick={() => router.push(item.url)}
+          />
+        ))}
+      </div>
     </nav>
   );
 };

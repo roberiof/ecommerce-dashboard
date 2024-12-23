@@ -5,8 +5,7 @@ import { ReactNode } from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext
+  CarouselItem
 } from "@/components/ui/carousel";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
@@ -34,7 +33,8 @@ const UserProfile = () => {
       <h2 className="ml-6 text-[24px] text-primary font-bold">
         Perfil do Usuário
       </h2>
-      <Carousel className="mr-16">
+
+      <Carousel>
         <CarouselContent>
           {items.map((item, index) => (
             <CarouselItem className="basis-[40%] select-none" key={index}>
@@ -42,7 +42,6 @@ const UserProfile = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext></CarouselNext>
       </Carousel>
     </div>
   );

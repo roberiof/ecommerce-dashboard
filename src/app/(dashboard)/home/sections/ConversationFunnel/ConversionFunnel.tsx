@@ -1,11 +1,12 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
+
 import MainCard from "@/components/molecules/MainCard/MainCard";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext
+  CarouselItem
 } from "@/components/ui/carousel";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
@@ -33,7 +34,16 @@ const ConversationFunnel = () => {
         Funil de Conversão
       </h2>
 
-      <Carousel className="mr-16">
+      <Carousel
+        opts={{
+          loop: true
+        }}
+        plugins={[
+          Autoplay({
+            delay: 3000
+          })
+        ]}
+      >
         <CarouselContent>
           {data &&
             (Object.keys(data) as ConversionKey[])?.map((key, index) => (
@@ -65,7 +75,6 @@ const ConversationFunnel = () => {
               </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselNext></CarouselNext>
       </Carousel>
     </div>
   );

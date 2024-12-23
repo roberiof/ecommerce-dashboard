@@ -4,8 +4,8 @@ import { CardProps } from "./types";
 
 const Gear: React.FC<CardProps> = ({
   color = "#4e5d66",
-  width = 40,
-  height = 40
+  width = 35,
+  height = 35
 }) => {
   return (
     <svg

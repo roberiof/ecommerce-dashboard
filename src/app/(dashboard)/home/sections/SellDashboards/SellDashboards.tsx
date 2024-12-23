@@ -4,8 +4,7 @@ import { ReactNode } from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext
+  CarouselItem
 } from "@/components/ui/carousel";
 
 import OrdersByCategory from "./components/OrdersByCategory";
@@ -27,7 +26,7 @@ const SellDashboards = () => {
         Dashboard de Vendas
       </h2>
 
-      <Carousel className="mr-16">
+      <Carousel>
         <CarouselContent>
           {items.map((item, index) => (
             <CarouselItem className="basis-[40%] select-none" key={index}>
@@ -35,7 +34,6 @@ const SellDashboards = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext></CarouselNext>
       </Carousel>
     </div>
   );

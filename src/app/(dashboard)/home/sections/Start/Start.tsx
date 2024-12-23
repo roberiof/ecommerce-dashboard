@@ -1,11 +1,9 @@
 "use client";
 import { ReactNode } from "react";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselNext
-} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 
 import Last24HoursTicket from "./components/Last24HoursTicket";
 import LastMonthMediumTicket from "./components/LastMonthMediumTicket";
@@ -26,9 +24,17 @@ const Start = () => {
     <div className="space-y-6">
       <h2 className="ml-6 text-[#4E5D66] text-[28px] font-bold"> Início</h2>
 
-      <Carousel className="mr-16">
+      <Carousel
+        opts={{
+          loop: true
+        }}
+        plugins={[
+          Autoplay({
+            delay: 3000
+          })
+        ]}
+      >
         <CarouselContent>{items.map((item) => item)}</CarouselContent>
-        <CarouselNext></CarouselNext>
       </Carousel>
     </div>
   );
