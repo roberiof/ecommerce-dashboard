@@ -1,6 +1,7 @@
 import React from "react";
 
 import ConversationFunnel from "./sections/ConversationFunnel/ConversionFunnel";
+import ProductsTable from "./sections/ProductsTable/ProductsTable";
 import SellDashboards from "./sections/SellDashboards/SellDashboards";
 import Start from "./sections/Start/Start";
 import UserProfile from "./sections/UserProfile/UserProfile";
@@ -12,6 +13,7 @@ const Home = () => {
       <SellDashboards />
       <ConversationFunnel />
       <UserProfile />
+      <ProductsTable />
     </div>
   );
 };
