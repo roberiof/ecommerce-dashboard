@@ -18,7 +18,10 @@ const ProductsMaintaince = () => {
   return (
     <>
       {data?.map((item, index) => (
-        <CarouselItem className="basis-[19%]" key={"products-maintence" + index}>
+        <CarouselItem
+          className="basis-[19%]"
+          key={"products-maintence" + index}
+        >
           <MainCard
             key={item.type}
             error={isError}
