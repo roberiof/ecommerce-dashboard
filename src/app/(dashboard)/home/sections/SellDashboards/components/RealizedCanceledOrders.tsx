@@ -12,7 +12,7 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 const RealizedCanceledOrders = () => {
   const {
     data: realizedData,
-    isLoading: isRealizedLoading,
+    isPending: isRealizedLoading,
     isError: isRealizedError
   } = useGenericFetch<
     {
@@ -23,7 +23,7 @@ const RealizedCanceledOrders = () => {
 
   const {
     data: canceledData,
-    isLoading: isCanceledLoading,
+    isPending: isCanceledLoading,
     isError: isCanceledError
   } = useGenericFetch<
     {
@@ -32,7 +32,7 @@ const RealizedCanceledOrders = () => {
     }[]
   >("/canceled-orders-per-month");
 
-  const isLoading = isRealizedLoading || isCanceledLoading;
+  const isPending = isRealizedLoading || isCanceledLoading;
   const isError = isRealizedError || isCanceledError;
 
   const chartData: {
@@ -122,7 +122,7 @@ const RealizedCanceledOrders = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {isLoading ? (
+      {isPending ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

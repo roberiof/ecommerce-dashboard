@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
 const OrdersByCategory = () => {
-  const { data, isLoading, isError } = useGenericFetch<
+  const { data, isPending, isError } = useGenericFetch<
     {
       category: string;
       value: number;
@@ -82,7 +82,7 @@ const OrdersByCategory = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {isLoading ? (
+      {isPending ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

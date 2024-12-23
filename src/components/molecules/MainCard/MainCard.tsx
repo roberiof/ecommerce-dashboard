@@ -23,7 +23,7 @@ const MainCard = ({
   error
 }: MainCardProps) => {
   return (
-    <div className="rounded-[15px] select-none bg-white w-[250px] shadow-lg flex flex-col justify-center  space-y-3 p-4 h-[168px]">
+    <div className="rounded-[15px] select-none bg-white w-[240px] shadow-lg flex flex-col justify-center  space-y-3 p-4 h-[168px]">
       <h2 className="text-[#4E5D66] font-bold">{title}</h2>
 
       {error ? (

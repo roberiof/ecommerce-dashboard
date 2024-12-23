@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
 const OrdersByMonth = () => {
-  const { data, isLoading, isError } = useGenericFetch<
+  const { data, isPending, isError } = useGenericFetch<
     {
       month: number;
       value: number;
@@ -86,7 +86,7 @@ const OrdersByMonth = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {isLoading ? (
+      {isPending ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

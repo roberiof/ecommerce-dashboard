@@ -16,10 +16,10 @@ import SessionsByGender from "./components/SessionsByGender";
 import { UserProfileData } from "./types";
 
 const UserProfile = () => {
-  const { data, isLoading, isError } =
+  const { data, isPending, isError } =
     useGenericFetch<UserProfileData>("/users-resume");
 
-  if (isLoading || isError || !data) {
+  if (isPending || isError || !data) {
     return null;
   }
 
