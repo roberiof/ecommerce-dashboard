@@ -1,13 +1,26 @@
 "use client";
-import React from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { Skeleton } from "@/components/ui/skeleton";
+import useGenericFetch from "@/hooks/queries/useGenericFetch";
+
 const Header = () => {
   const router = useRouter();
-  const name = "Eduardo";
-  const firstLetter = name.charAt(0).toUpperCase();
+  const { data, isPending, isError } = useGenericFetch<{
+    username: string;
+    name: string;
+    avatar: string;
+  }>("/me", {
+    staleTime: 1000 * 60 * 60,
+    gcTime: 1000 * 60 * 60 * 24
+  });
+
+  if (isError) {
+    router.push("/login");
+    return;
+  }
 
   return (
     <header>
@@ -19,12 +32,20 @@ const Header = () => {
           alt="Logo"
           onClick={() => router.push("/")}
         />
-        <div className="flex items-center space-x-4 pl-4">
-          <p>{name}</p>
-          <div className="rounded-full bg-[#5A4CA7]/50 w-[40px] h-[40px] flex items-center justify-center">
-            <p className="text-[22px] text-[#4E5D66]">{firstLetter}</p>
+        {isPending ? (
+          <Skeleton className="w-[1p00px] h-[30px]" />
+        ) : (
+          <div className="flex items-center space-x-4 pl-4">
+            <p>{data.name}</p>
+            <Image
+              src={data.avatar}
+              width={40}
+              height={40}
+              alt="Avatar"
+              className="object-cover rounded-full flex-shrink-0 h-[40px]"
+            />
           </div>
-        </div>
+        )}
       </div>
       <div className="h-[92px]" />
     </header>
