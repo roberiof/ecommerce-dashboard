@@ -28,8 +28,8 @@ const ConversationFunnel = () => {
   };
 
   return (
-    <div className="space-y-2">
-      <h2 className="text-[#4E5D66] text-[28px] font-bold">
+    <div className="space-y-6">
+      <h2 className="ml-6 text-primary text-[24px] font-bold">
         Funil de Conversão
       </h2>
 

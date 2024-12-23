@@ -6,7 +6,7 @@ import Start from "./sections/Start/Start";
 
 const Home = () => {
   return (
-    <div className="space-y-8 w-full">
+    <div className="space-y-12 w-full">
       <Start />
       <SellDashboards />
       <ConversationFunnel />

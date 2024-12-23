@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       />
       <Header />
       <Sidebar />
-      <div className="relative left-[150px] flex gap-16 py-12 w-[90vw]">
+      <div className="relative left-[150px] flex gap-16 pt-8 pb-12 w-[90vw]">
         {children}
       </div>
     </main>
