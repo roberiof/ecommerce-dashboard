@@ -3,6 +3,7 @@ import React from "react";
 import ConversationFunnel from "./sections/ConversationFunnel/ConversionFunnel";
 import SellDashboards from "./sections/SellDashboards/SellDashboards";
 import Start from "./sections/Start/Start";
+import UserProfile from "./sections/UserProfile/UserProfile";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Start />
       <SellDashboards />
       <ConversationFunnel />
+      <UserProfile />
     </div>
   );
 };
