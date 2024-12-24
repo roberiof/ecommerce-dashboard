@@ -48,7 +48,7 @@ const ConversationFunnel = () => {
           {data &&
             (Object.keys(data) as ConversionKey[])?.map((key, index) => (
               <CarouselItem
-                className="basis-[19%]"
+                className="basis-1/2 lg:basis-1/3 2xl:basis-[19%]"
                 key={"products-maintence" + index}
               >
                 <MainCard

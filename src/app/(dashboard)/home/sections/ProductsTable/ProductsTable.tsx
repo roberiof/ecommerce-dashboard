@@ -44,7 +44,7 @@ const ProductsTable = () => {
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          classNameDiv="w-[400px] "
+          classNameDiv="w-[200px] xl:w-[400px] "
           placeholder="Pesquisar"
           type="text"
           name="search"

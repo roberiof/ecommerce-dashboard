@@ -12,7 +12,7 @@ const OrdersMonth = () => {
   }>("/orders-month");
 
   return (
-    <CarouselItem className="basis-[19%]" key={"orders-month"}>
+    <CarouselItem className="carousel-item-start" key={"orders-month"}>
       <MainCard
         error={isError}
         loading={isPending}

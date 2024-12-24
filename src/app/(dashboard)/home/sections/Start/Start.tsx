@@ -11,6 +11,8 @@ import OrdersMonth from "./components/OrdersMonth";
 import ProductsMaintaince from "./components/ProductsMaintaince";
 import ProductsMonth from "./components/ProductsMonth";
 
+import "./styles.css";
+
 const Start = () => {
   const items: ReactNode[] = [
     <Last24HoursTicket key={0} />,

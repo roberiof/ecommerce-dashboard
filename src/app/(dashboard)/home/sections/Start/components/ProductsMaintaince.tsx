@@ -19,7 +19,7 @@ const ProductsMaintaince = () => {
     <>
       {data?.map((item, index) => (
         <CarouselItem
-          className="basis-[19%]"
+          className="carousel-item-start"
           key={"products-maintence" + index}
         >
           <MainCard

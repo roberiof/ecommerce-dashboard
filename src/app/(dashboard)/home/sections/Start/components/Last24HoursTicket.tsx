@@ -12,7 +12,7 @@ const Last24HoursTicket = () => {
   }>("/avg-ticket-day");
 
   return (
-    <CarouselItem className="basis-[19%]" key={"last-24h-ticket"}>
+    <CarouselItem className="carousel-item-start" key={"last-24h-ticket"}>
       <MainCard
         error={isError}
         loading={isPending}

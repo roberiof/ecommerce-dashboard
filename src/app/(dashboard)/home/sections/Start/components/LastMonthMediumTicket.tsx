@@ -15,7 +15,7 @@ const LastMonthMediumTicket = () => {
   }>("/avg-ticket-month");
 
   return (
-    <CarouselItem className="basis-[19%]" key={"last-month-ticket"}>
+    <CarouselItem className="carousel-item-start" key={"last-month-ticket"}>
       <MainCard
         error={isError}
         loading={isPending}
