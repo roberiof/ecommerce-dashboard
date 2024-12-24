@@ -6,7 +6,7 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 const OrdersMonth = () => {
   const date = new Date().getMonth();
   const monthName = monthNames[date - 1];
-  const { data, isPending, isError } = useGenericFetch<{
+  const { data, isPending, isError, isFetching } = useGenericFetch<{
     value: number;
     growth: number;
   }>("/orders-month");
@@ -15,7 +15,7 @@ const OrdersMonth = () => {
     <CarouselItem className="carousel-item-start" key={"orders-month"}>
       <MainCard
         error={isError}
-        loading={isPending}
+        loading={isPending || isFetching}
         type={data && data?.growth > 0 ? "positive" : "negative"}
         title="Pedidos realizados no mês"
         badge={

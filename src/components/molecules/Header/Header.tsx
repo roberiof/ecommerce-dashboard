@@ -8,7 +8,7 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
 const Header = () => {
   const router = useRouter();
-  const { data, isPending, isError } = useGenericFetch<{
+  const { data, isPending, isFetching, isError } = useGenericFetch<{
     username: string;
     name: string;
     avatar: string;
@@ -32,7 +32,7 @@ const Header = () => {
           alt="Logo"
           onClick={() => router.push("/")}
         />
-        {isPending ? (
+        {(isPending || isFetching) ? (
           <Skeleton className="w-[1p00px] h-[30px]" />
         ) : (
           <div className="flex items-center space-x-4 pl-4">

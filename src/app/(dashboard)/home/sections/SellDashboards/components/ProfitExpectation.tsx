@@ -9,7 +9,8 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 const ProfitExpectation = () => {
   const {
     data: profitExpectationData,
-    isPending: isProfitExpectationLoading,
+    isPending: isProfitExpectationPending,
+    isFetching: isProfitExpectationFetching,
     isError: isProfitExpectationError
   } = useGenericFetch<
     {
@@ -20,7 +21,8 @@ const ProfitExpectation = () => {
 
   const {
     data: profitData,
-    isPending: isProfitLoading,
+    isPending: isProfitPending,
+    isFetching: isProfitFetching,
     isError: isProfitError
   } = useGenericFetch<
     {
@@ -29,7 +31,8 @@ const ProfitExpectation = () => {
     }[]
   >("/profit-per-month");
 
-  const isPending = isProfitExpectationLoading || isProfitLoading;
+  const isPending = isProfitExpectationPending || isProfitPending;
+  const isFetching  = isProfitExpectationFetching || isProfitFetching;
   const isError = isProfitExpectationError || isProfitError;
 
   const chartData: {
@@ -151,7 +154,7 @@ const ProfitExpectation = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {isPending ? (
+      {(isPending || isFetching) ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

@@ -9,7 +9,7 @@ import { formatCurrency } from "@/utils/formatCurrency";
 const LastMonthMediumTicket = () => {
   const date = new Date().getMonth();
   const monthName = monthNames[date - 1];
-  const { data, isPending, isError } = useGenericFetch<{
+  const { data, isPending, isError, isFetching } = useGenericFetch<{
     value: number;
     growth: number;
   }>("/avg-ticket-month");
@@ -18,7 +18,7 @@ const LastMonthMediumTicket = () => {
     <CarouselItem className="carousel-item-start" key={"last-month-ticket"}>
       <MainCard
         error={isError}
-        loading={isPending}
+        loading={isPending || isFetching}
         type={data && data?.growth > 0 ? "positive" : "negative"}
         title="Ticket médio mensal"
         badge={

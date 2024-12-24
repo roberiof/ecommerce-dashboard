@@ -7,7 +7,7 @@ import { CarouselItem } from "@/components/ui/carousel";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 
 const ProductsMaintaince = () => {
-  const { data, isPending, isError } = useGenericFetch<
+  const { data, isPending, isError, isFetching } = useGenericFetch<
     {
       type: string;
       value: number;
@@ -25,7 +25,7 @@ const ProductsMaintaince = () => {
           <MainCard
             key={item.type}
             error={isError}
-            loading={isPending}
+            loading={isPending || isFetching}
             type={"negative"}
             title={item?.type ?? ""}
             badge={

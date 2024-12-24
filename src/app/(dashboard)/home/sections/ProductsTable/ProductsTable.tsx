@@ -20,7 +20,7 @@ const ProductsTable = () => {
   const limit = 7;
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  const { data, isPending } = useGenericFetch<
+  const { data, isPending, isFetching } = useGenericFetch<
     {
       createdAt: string;
       name: string;
@@ -113,7 +113,7 @@ const ProductsTable = () => {
         </button>
         <button
           onClick={() => handlePageChange(page + 1)}
-          disabled={isPending}
+          disabled={isPending || isFetching}
           className="px-1 py-2 bg-gray-300 rounded-lg disabled:opacity-50"
         >
           <ChevronRight size={20} />

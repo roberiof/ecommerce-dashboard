@@ -6,7 +6,7 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 import { formatCurrency } from "@/utils/formatCurrency";
 
 const Last24HoursTicket = () => {
-  const { data, isError, isPending } = useGenericFetch<{
+  const { data, isError, isPending, isFetching } = useGenericFetch<{
     growth: number;
     value: number;
   }>("/avg-ticket-day");
@@ -15,7 +15,7 @@ const Last24HoursTicket = () => {
     <CarouselItem className="carousel-item-start" key={"last-24h-ticket"}>
       <MainCard
         error={isError}
-        loading={isPending}
+        loading={isPending || isFetching}
         type={data && data?.growth > 0 ? "positive" : "negative"}
         title="Ticket médio últimas 24h"
         badge={
