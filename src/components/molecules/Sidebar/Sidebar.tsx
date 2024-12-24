@@ -50,7 +50,7 @@ const Sidebar = () => {
     },
     {
       icon: ({ color }: { color: string }) => <Cat color={color} />,
-      url: "#category"
+      url: "/add-product"
     },
     {
       icon: ({ color }: { color: string }) => <Log color={color} />,
