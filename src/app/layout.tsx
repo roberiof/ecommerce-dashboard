@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+// eslint-disable-next-line import/order
 import { Nunito_Sans, Ubuntu } from "next/font/google";
+
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+
+import QueryClientProviderApp from "@/store/providers/QueryClientApp";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -25,9 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${ubuntu.variable} ${nunitoSans.variable} antialiased`}>
-        {children}
-      </body>
+      <QueryClientProviderApp>
+        <body
+          className={`${ubuntu.variable} ${nunitoSans.variable} antialiased overflow-x-hidden`}
+        >
+          <ToastContainer />
+          {children}
+        </body>
+      </QueryClientProviderApp>
     </html>
   );
 }
