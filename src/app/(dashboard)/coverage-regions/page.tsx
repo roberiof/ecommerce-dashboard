@@ -1,7 +1,13 @@
 "use client";
 
-import { MapComponent } from "./components/Map/map";
+import dynamic from "next/dynamic";
 
+const MapComponent = dynamic(
+  () => import("./components/Map/map").then((mod) => mod.MapComponent),
+  {
+    ssr: false
+  }
+);
 const CoverageRegions = () => {
   return (
     <div className="w-full space-y-8 mr-12 2xl:mr-0">

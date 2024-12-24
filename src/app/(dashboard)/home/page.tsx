@@ -1,10 +1,28 @@
+"use client";
 import React from "react";
+
+import dynamic from "next/dynamic";
 
 import ConversationFunnel from "./sections/ConversationFunnel/ConversionFunnel";
 import ProductsTable from "./sections/ProductsTable/ProductsTable";
-import SellDashboards from "./sections/SellDashboards/SellDashboards";
 import Start from "./sections/Start/Start";
-import UserProfile from "./sections/UserProfile/UserProfile";
+
+const SellDashboards = dynamic(
+  () =>
+    import("./sections/SellDashboards/SellDashboards").then(
+      (mod) => mod.default
+    ),
+  {
+    ssr: false
+  }
+);
+
+const UserProfile = dynamic(
+  () => import("./sections/UserProfile/UserProfile").then((mod) => mod.default),
+  {
+    ssr: false
+  }
+);
 
 const Home = () => {
   return (
