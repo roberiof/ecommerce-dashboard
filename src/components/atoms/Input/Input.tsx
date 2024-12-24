@@ -23,7 +23,7 @@ const Input = <T extends FieldValues>({
 
   const inputProps = {
     className: cn(
-      "bg-[#F3F5F6] px-4 w-full h-[60px] rounded-[8px] text-[#333333] placeholder:text-[#606060] text-base outline-none pr-10",
+      "bg-[#F3F5F6] px-4 w-full h-[60px] rounded-[8px] text-[#333333] placeholder:text-[#606060] text-base outline-none",
       className
     ),
     ...props,

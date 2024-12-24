@@ -1,20 +1,12 @@
-import { FieldErrors, FieldValues } from "react-hook-form";
+import { FieldValues } from "react-hook-form";
 
+import { getNestedError } from "@/utils/getNestedError";
 import FormErrorLabel from "@atoms/FormErrorLabel/FormErrorLabel";
 import Input from "@atoms/Input/Input";
 import Label from "@atoms/Label/Label";
 import { cn } from "@utils/shadcn/utils";
 
 import { InputFieldProps } from "./types";
-
-function getNestedError<T extends FieldValues>(
-  errors: FieldErrors<T>,
-  path: string
-): string | undefined {
-  const keys = path.split(".");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return keys.reduce((obj, key) => obj?.[key], errors as any)?.message;
-}
 
 const InputField = <T extends FieldValues>({
   register,
@@ -25,24 +17,39 @@ const InputField = <T extends FieldValues>({
   formErrors,
   label,
   classNameDiv,
+  layout = "vertical",
   ...props
-}: InputFieldProps<T>) => {
-  const errorMessage = getNestedError<T>(formErrors, name);
+}: InputFieldProps<T> & { layout?: "vertical" | "horizontal" }) => {
+  const errorMessage = getNestedError(formErrors, name);
+
+  const isHorizontal = layout === "horizontal";
 
   return (
-    <div className={cn("flex w-full flex-col gap-1", classNameDiv)}>
-      {label && <Label className={labelClassName}>{label}</Label>}
-      <Input
-        {...props}
-        className={className}
-        name={name}
-        register={register}
-        mask={mask}
-      />
-
-      {errorMessage && (
-        <FormErrorLabel>{errorMessage.toString()}</FormErrorLabel>
+    <div
+      className={cn(
+        "flex w-full flex-col gap-1",
+        isHorizontal && "flex-row items-center gap-4",
+        isHorizontal && errorMessage && "items-start ",
+        classNameDiv
       )}
+    >
+      {label && (
+        <Label
+          className={cn(labelClassName, isHorizontal && errorMessage && "mt-1")}
+        >
+          {label}
+        </Label>
+      )}
+      <div className={cn("flex flex-col gap-1", isHorizontal && "w-full")}>
+        <Input
+          {...props}
+          className={className}
+          name={name}
+          register={register}
+          mask={mask}
+        />
+        {errorMessage && <FormErrorLabel>{errorMessage}</FormErrorLabel>}
+      </div>
     </div>
   );
 };
