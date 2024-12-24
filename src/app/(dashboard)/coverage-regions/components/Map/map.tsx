@@ -11,7 +11,6 @@ import { geoJSONUrl, generateModalHTML } from "./constants";
 
 export const MapComponent = () => {
   const mapRef = useRef<HTMLDivElement | null>(null);
-  const [map, setMap] = useState<L.Map | undefined>(undefined);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [geoJsonData, setGeoJsonData] = useState<any | null>(null);
 
@@ -30,42 +29,31 @@ export const MapComponent = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!geoJsonData || !mapRef.current) return;
+    if (!geoJsonData || !mapRef.current || !data) return;
 
-    const localMap = L.map(mapRef.current).setView([-23.55052, -46.633308], 4);
+    const map = L.map(mapRef.current).setView([-23.55052, -46.633308], 4);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(localMap);
+    }).addTo(map);
 
-    setMap(localMap);
+    L.geoJSON(geoJsonData)
+      .addTo(map)
+      .eachLayer((layer) => {
+        layer.bindPopup(generateModalHTML(data), {
+          closeButton: false,
+          autoClose: false
+        });
+      });
 
-    window.addEventListener("resize", () => localMap.invalidateSize());
-
-    return () => {
-      window.removeEventListener("resize", () => localMap.invalidateSize());
-      localMap.remove();
-      setMap(undefined);
-    };
-  }, [geoJsonData]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!map || !data || !geoJsonData) return;
-
-    const geoJson = L.geoJSON(geoJsonData, {
-      onEachFeature: (_, layer) => {
-        layer.bindPopup(generateModalHTML(data), { closeButton: false });
-      }
-    });
-
-    map.addLayer(geoJson);
+    window.addEventListener("resize", () => map.invalidateSize());
 
     return () => {
-      map?.removeLayer(geoJson);
+      window.removeEventListener("resize", () => map.invalidateSize());
+      map.remove();
     };
-  }, [map, geoJsonData, data]);
+  }, [geoJsonData, data]);
 
   return (
     <div
