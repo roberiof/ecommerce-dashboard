@@ -4,7 +4,7 @@ import { MapComponent } from "./components/Map/map";
 
 const CoverageRegions = () => {
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-8 mr-12 2xl:mr-0">
       <h1 className="text-[#4E5D66] text-[28px] font-medium">
         Regiões de Cobertura
       </h1>
