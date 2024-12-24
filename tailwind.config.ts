@@ -11,7 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "nunito-sans": ["var(--font-nunito-sans)", ...fontFamily.sans]
+        "nunito-sans": ["var(--font-nunito-sans)", ...fontFamily.sans],
+        ubuntu: ["var(--font-ubuntu)", ...fontFamily.sans]
       },
       colors: {
         background: "var(--background)",

@@ -62,7 +62,7 @@ const Sidebar = () => {
     },
     {
       icon: ({ color }: { color: string }) => <Service color={color} />,
-      url: "#service"
+      url: "/coverage-regions"
     },
     {
       icon: ({ color }: { color: string }) => <Card color={color} />,
@@ -83,7 +83,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <nav className="fixed top-[110px] py-4 flex flex-col items-center left-8 w-[88px] h-[80vh] rounded-[8px] shadow-xl bg-white">
+    <nav className="fixed top-[110px] py-4 flex flex-col items-center left-8 w-[88px] h-[80vh] rounded-[8px] shadow-xl bg-white z-20">
       <Image src="/menu.svg" width={40} height={40} alt="Menu" />
 
       <div className="w-full h-[2px] bg-base-black/10 shrink-0 my-4" />

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/utils/shadcn/utils";
