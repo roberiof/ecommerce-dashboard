@@ -32,7 +32,7 @@ const Header = () => {
           alt="Logo"
           onClick={() => router.push("/")}
         />
-        {(isPending || isFetching) ? (
+        {isPending || isFetching ? (
           <Skeleton className="w-[1p00px] h-[30px]" />
         ) : (
           <div className="flex items-center space-x-4 pl-4">

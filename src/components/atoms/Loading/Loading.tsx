@@ -1,4 +1,5 @@
 import { cn } from "@/utils/shadcn/utils";
+
 import { LoadingProps } from "./types";
 
 const Loading = ({ className }: LoadingProps) => {

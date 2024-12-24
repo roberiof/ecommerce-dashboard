@@ -37,7 +37,10 @@ const UserProfile = () => {
       <Carousel>
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[60%] 2xl:basis-[40%] select-none" key={index}>
+            <CarouselItem
+              className="basis-[60%] 2xl:basis-[40%] select-none"
+              key={index}
+            >
               {item}
             </CarouselItem>
           ))}

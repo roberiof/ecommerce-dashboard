@@ -5,7 +5,7 @@ import { CardProps } from "./types";
 const Card: React.FC<CardProps> = ({
   color = "#4e5d66",
   width = 35,
-  height = 35,
+  height = 35
 }) => {
   return (
     <svg

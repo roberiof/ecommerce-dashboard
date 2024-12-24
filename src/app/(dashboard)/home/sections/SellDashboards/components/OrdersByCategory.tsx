@@ -82,7 +82,7 @@ const OrdersByCategory = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {(isPending || isFetching) ? (
+      {isPending || isFetching ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

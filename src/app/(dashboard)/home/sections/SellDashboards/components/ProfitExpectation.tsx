@@ -32,7 +32,7 @@ const ProfitExpectation = () => {
   >("/profit-per-month");
 
   const isPending = isProfitExpectationPending || isProfitPending;
-  const isFetching  = isProfitExpectationFetching || isProfitFetching;
+  const isFetching = isProfitExpectationFetching || isProfitFetching;
   const isError = isProfitExpectationError || isProfitError;
 
   const chartData: {
@@ -154,7 +154,7 @@ const ProfitExpectation = () => {
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
 
-      {(isPending || isFetching) ? (
+      {isPending || isFetching ? (
         <Skeleton className={"h-[250px]"} />
       ) : isError ? (
         <div className="text-red h-[250px]">Erro ao carregar</div>

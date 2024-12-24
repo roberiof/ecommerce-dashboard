@@ -6,7 +6,7 @@ import useGenericFetch from "@/hooks/queries/useGenericFetch";
 const ProductsMonth = () => {
   const date = new Date().getMonth();
   const monthName = monthNames[date - 1];
-  const { data, isPending, isError , isFetching} = useGenericFetch<{
+  const { data, isPending, isError, isFetching } = useGenericFetch<{
     value: number;
     growth: number;
   }>("/sells-month");
