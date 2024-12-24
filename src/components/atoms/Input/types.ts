@@ -7,4 +7,5 @@ export interface InputProps<T extends FieldValues>
   name?: Path<T>;
   register?: UseFormRegister<T>;
   mask?: string;
+  classNameDiv?: string;
 }

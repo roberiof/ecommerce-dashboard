@@ -14,6 +14,7 @@ const Input = <T extends FieldValues>({
   name,
   type,
   className,
+  classNameDiv,
   ...props
 }: InputProps<T>) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +36,7 @@ const Input = <T extends FieldValues>({
   };
 
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full", classNameDiv)}>
       {mask ? (
         <InputMask {...inputProps} mask={mask} replacement={{ _: /\d/ }} />
       ) : (
