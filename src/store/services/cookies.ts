@@ -1,6 +1,7 @@
 const APP_COOKIE_SUFFIX = "@EccomerceDashboard:";
 
 function cookieGet(key: string): string | undefined {
+  if (typeof window === "undefined") return undefined;
   const name = `${APP_COOKIE_SUFFIX}${key}=`;
   const decodedCookies = decodeURIComponent(document.cookie);
   const cookiesArray = decodedCookies.split(";");
@@ -20,6 +21,8 @@ function cookieSet(
   value: string,
   options?: { expires?: number | Date; path?: string; secure?: boolean }
 ): void {
+  if (typeof window === "undefined") return undefined;
+
   let cookieString = `${APP_COOKIE_SUFFIX}${key}=${encodeURIComponent(value)};`;
 
   if (options) {
@@ -48,6 +51,7 @@ function cookieDelete(key: string, path?: string): void {
 }
 
 function cookieClear(path?: string): void {
+  if (typeof window === "undefined") return undefined;
   const cookies = document.cookie.split(";");
 
   cookies.forEach((cookie) => {

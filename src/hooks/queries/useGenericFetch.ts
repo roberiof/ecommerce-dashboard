@@ -22,16 +22,13 @@ const useGenericFetch = <T>(
 ): UseQueryResult<T, unknown> => {
   const token = cookieGet("accessToken");
 
-  if (!token) {
-    throw new Error("Token not found");
-  }
-
   return useQuery<T, unknown>({
     queryKey: [endpoint],
-    queryFn: () => genericQueryFn<T>(token, endpoint),
+    queryFn: () => genericQueryFn<T>("token", endpoint),
     staleTime: 2 * 1000, // 2 seconds
     gcTime: 60 * 1000 * 5, // 5 minutes
     refetchOnWindowFocus: false,
+    enabled: !!token,
     ...options
   });
 };

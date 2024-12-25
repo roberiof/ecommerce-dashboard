@@ -24,7 +24,7 @@ function AuthenticatedOnlyFeature({ children }: Props): JSX.Element {
     }
   }, [accessToken, router]);
 
-  if (!accessToken) {
+  if (!accessToken || typeof window === "undefined") {
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <LoadingComponent />
