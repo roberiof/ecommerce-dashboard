@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <main className="relative w-screen h-screen flex items-center justify-center">
       <Image
-        src={"/login/background.svg"}
+        src={"/background.svg"}
         fill
         className="object-cover opacity-90"
         alt="Image background"
