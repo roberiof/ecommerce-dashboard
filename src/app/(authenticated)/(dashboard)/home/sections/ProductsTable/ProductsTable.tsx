@@ -32,7 +32,10 @@ const ProductsTable = () => {
   >(
     search
       ? `products?search=${search}`
-      : `products?page=${page}&limit=${limit}`
+      : `products?page=${page}&limit=${limit}`,
+    {
+      retry: false
+    }
   );
 
   const handlePageChange = (newPage: number) => {
