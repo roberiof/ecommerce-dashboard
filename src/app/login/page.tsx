@@ -50,7 +50,7 @@ const Login = () => {
       />
       <form
         onSubmit={handleSubmit(handleForm)}
-        className="shadow-xl flex-col w-[900px] h-full flex items-center gap-12 justify-center bg-white z-10 p-8 2xl:p-16"
+        className="shadow-xl flex-col w-[900px] h-full flex items-center gap-12 justify-center bg-white z-10 p-8"
       >
         <div className="space-y-8 text-center ">
           <Image src={"/logo.svg"} width={263} height={226} alt="Logo" />
