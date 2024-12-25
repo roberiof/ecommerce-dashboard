@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 
+import { motion } from "motion/react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -18,14 +19,21 @@ import { cn } from "@/utils/shadcn/utils";
 const SidebarItem = ({
   active,
   icon,
-  onClick
+  onClick,
+  index
 }: {
   active: boolean;
   onClick: () => void;
   icon: ({ color }: { color: string }) => ReactNode;
+  index: number;
 }) => {
   return (
-    <div className="flex justify-center">
+    <motion.div
+      className="flex justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.3 }}
+    >
       <div
         onClick={onClick}
         className={cn(
@@ -35,7 +43,7 @@ const SidebarItem = ({
       >
         {icon({ color: active ? "white" : "#4E5D66" })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -95,6 +103,7 @@ const Sidebar = () => {
             active={item.url === pathname}
             icon={item.icon}
             onClick={() => router.push(item.url)}
+            index={index} // Passando o índice para o delay
           />
         ))}
       </div>
