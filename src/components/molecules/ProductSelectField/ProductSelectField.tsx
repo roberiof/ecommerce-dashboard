@@ -66,9 +66,8 @@ const ProductSelectField = <T extends FieldValues>({
             <PopoverContent className="w-[20rem] max-h-[30rem] overflow-y-auto p-4 space-y-4 bg-[#FAFAFA] rounded-lg shadow-lg">
               {options.map((option, optionIndex) => (
                 <div key={option.label} className="relative">
-                  {/* Linha vertical principal para a categoria */}
                   {optionIndex !== options.length - 1 && (
-                    <div className="absolute left-2 top-5 w-px bg-[#E0E0E0] h-full" />
+                    <div className="absolute left-[9px] top-[22px] w-px bg-[#E0E0E0] h-full" />
                   )}
 
                   <div className="flex items-center space-x-2">
@@ -83,9 +82,7 @@ const ProductSelectField = <T extends FieldValues>({
                         <Plus size={12} />
                       )}
                     </button>
-                    <p className="font-semibold text-sm text-[#606060]">
-                      {option.label}
-                    </p>
+                    <p className="text-[#4E5D66]">{option.label}</p>
                   </div>
 
                   {expandedCategories.includes(option.label) && (
@@ -114,10 +111,7 @@ const ProductSelectField = <T extends FieldValues>({
                                 field.onChange(newValue);
                               }}
                             />
-                            <label
-                              htmlFor={item}
-                              className="text-sm text-[#333333]"
-                            >
+                            <label htmlFor={item} className="text-[#4E5D66]">
                               {item}
                             </label>
                           </div>
