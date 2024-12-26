@@ -62,7 +62,11 @@ const TransactionsByAge = ({ data }: { data: TransactionPerAge[] }) => {
       },
       tooltip: {
         x: {
-          formatter: (val: number) => `${val} transações`
+          formatter: (value: number) => {
+            const category = data[value - 1] ? data[value - 1].category : value;
+
+            return category.toString();
+          }
         }
       }
     }

@@ -149,7 +149,7 @@ const ProfitExpectation = () => {
     <div className="rounded-[15px] bg-white shadow-lg p-4 space-y-8 h-full">
       <div className="flex items-center justify-between">
         <h2 className="text-base-black text-[19px] font-bold">
-          Expectativa de lucro x Lucro real{" "}
+          Expectativa de lucro x lucro real{" "}
         </h2>
         <div className="bg-[#F3F5F6] w-[80px] rounded-[15px]"></div>
       </div>
