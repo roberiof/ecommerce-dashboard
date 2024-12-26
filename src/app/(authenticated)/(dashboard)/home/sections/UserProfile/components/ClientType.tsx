@@ -18,7 +18,7 @@ const ClientType = ({ data }: { data: TransactionPerClientType[] }) => {
       .reduce((acc, cur) => cur?.value + acc, 0);
 
     const series = [newClients, totalClients];
-    const labels = ["Novo cliente", "Retornado"];
+    const labels = ["Novo cliente", "Cliente Retornado"];
 
     const options: ApexOptions = {
       chart: {

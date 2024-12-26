@@ -30,7 +30,7 @@ const SellDashboards = () => {
         <CarouselContent>
           {items.map((item, index) => (
             <CarouselItem
-              className="basis-[60%] 2xl:basis-[40%] select-none"
+              className="basis-[60%] 2xl:basis-[43%] select-none"
               key={index}
             >
               {item}
