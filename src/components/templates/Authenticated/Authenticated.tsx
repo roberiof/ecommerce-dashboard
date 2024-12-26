@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useEffect } from "react";
+import { JSX, useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -16,15 +16,17 @@ function AuthenticatedOnlyFeature({ children }: Props): JSX.Element {
   const router = useRouter();
 
   const accessToken = cookieGet("accessToken");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!accessToken) {
       router.push(`/login`);
       errorToast("Você precisa estar logado para acessar essa página.");
     }
+    setLoading(false);
   }, [accessToken, router]);
 
-  if (!accessToken || typeof window === "undefined") {
+  if (!accessToken || loading) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <LoadingComponent />
