@@ -1,4 +1,4 @@
-import { monthNames } from "@/common/constants/months";
+import { getLastMonth } from "@/utils/getLastMonth";
 import { cn } from "@/utils/shadcn/utils";
 
 export const geoJSONUrl = "/geo.json";
@@ -10,8 +10,7 @@ export const generateModalHTML = ({
   growth: number;
   value: number;
 }): string => {
-  const date = new Date().getMonth();
-  const monthName = monthNames[date - 1];
+  const monthName = getLastMonth();
 
   return `
     <div class="rounded-[15px] select-none font-ubuntu bg-white flex flex-col justify-center space-y-3">

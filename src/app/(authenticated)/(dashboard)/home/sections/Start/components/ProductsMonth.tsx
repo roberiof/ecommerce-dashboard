@@ -1,11 +1,10 @@
-import { monthNames } from "@/common/constants/months";
 import MainCard from "@/components/molecules/MainCard/MainCard";
 import { CarouselItem } from "@/components/ui/carousel";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
+import { getLastMonth } from "@/utils/getLastMonth";
 
 const ProductsMonth = () => {
-  const date = new Date().getMonth();
-  const monthName = monthNames[date - 1];
+  const monthName = getLastMonth();
   const { data, isPending, isError, isFetching } = useGenericFetch<{
     value: number;
     growth: number;
