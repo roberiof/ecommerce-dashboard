@@ -7,21 +7,12 @@ import ConversationFunnel from "./sections/ConversationFunnel/ConversionFunnel";
 import ProductsTable from "./sections/ProductsTable/ProductsTable";
 import Start from "./sections/Start/Start";
 
-const SellDashboards = dynamic(
-  () =>
-    import("./sections/SellDashboards/SellDashboards").then(
-      (mod) => mod.default
-    ),
-  {
-    ssr: false
-  }
+const SellDashboards = dynamic(() =>
+  import("./sections/SellDashboards/SellDashboards").then((mod) => mod.default)
 );
 
-const UserProfile = dynamic(
-  () => import("./sections/UserProfile/UserProfile").then((mod) => mod.default),
-  {
-    ssr: false
-  }
+const UserProfile = dynamic(() =>
+  import("./sections/UserProfile/UserProfile").then((mod) => mod.default)
 );
 
 const Home = () => {
