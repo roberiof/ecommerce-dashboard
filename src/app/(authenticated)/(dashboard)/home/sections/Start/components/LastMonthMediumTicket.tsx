@@ -1,14 +1,13 @@
 "use client";
 
-import { monthNames } from "@/common/constants/months";
 import MainCard from "@/components/molecules/MainCard/MainCard";
 import { CarouselItem } from "@/components/ui/carousel";
 import useGenericFetch from "@/hooks/queries/useGenericFetch";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { getLastMonth } from "@/utils/getLastMonth";
 
 const LastMonthMediumTicket = () => {
-  const date = new Date().getMonth();
-  const monthName = monthNames[date - 1];
+  const monthName = getLastMonth();
   const { data, isPending, isError, isFetching } = useGenericFetch<{
     value: number;
     growth: number;

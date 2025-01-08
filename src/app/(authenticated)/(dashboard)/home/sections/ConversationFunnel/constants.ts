@@ -1,4 +1,4 @@
-import { monthNames } from "@/common/constants/months";
+import { getLastMonth } from "@/utils/getLastMonth";
 
 import { ConversionKey } from "./types";
 
@@ -6,8 +6,7 @@ export const getBadgeDescription = (key: ConversionKey) => {
   if (key === "total-per-day") {
     return "em relação a ontem";
   } else {
-    const date = new Date().getMonth();
-    const monthName = monthNames[date - 1];
+    const monthName = getLastMonth();
 
     return `em relação a ${monthName}`;
   }
