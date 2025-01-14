@@ -6,11 +6,21 @@
 
 <br>
 
-> Use o projeto: [Ecommerce Dashboard](https://ecommerce-dashboard-v1.vercel.app/login)
+> Use the project: [Ecommerce Dashboard](https://ecommerce-dashboard-v1.vercel.app/login)
+
+## ⚡How to use 
+
+You should first make your login (just use a random e-mail and password combination) so you can use the platform.
+
+* Login (/login)
+* Home (/home)
+* Coverage Regions (/coverage-regions)
+* Add product (/add-product)
+
 
 <br>
 
-## 🚀 Tecnologias Usadas 
+## 🚀 Technologies Used
 * **[ React JS ](https://reactjs.org/docs/getting-started.html)**
 * **[Next.js](https://nextjs.org/)**
 * **[ Typescript ](https://reactrouter.com/en/main/components/route)**
@@ -23,3 +33,10 @@
 * **[Vitest](https://vitest.dev/)**
 * **[Apex Charts](https://apexcharts.com/)**
 * **[Leaflet](https://leafletjs.com/)**
+
+
+## 🧱 Next Steps 
+* Use [middleware feature](https://nextjs.org/docs/app/building-your-application/routing/middleware) of Next JS to take better advantage of SSR
+* Remove "use client" in some components (e.g., the Header) to enhance SSR
+* Add more functionalities to the Leaflet map (measures, [drawings](https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html) etc)
+* Separete more hooks 
